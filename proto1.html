@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Panorama store demo</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="scripts/default.css" rel="stylesheet" type="text/css"/>
+		<link href="scripts/custom.css" rel="stylesheet" type="text/css" />
+		
+		<!-- jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+		<!-- bootstrap -->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js" type="text/javascript"></script>
+		
+		<script src="scripts/panorama.js"></script>
+		<script src="scripts/dragObj.js"></script>
+	</head>
+	<body>
+
+		<div id="container"></div>
+		<div id="info_window"  class="alert alert-info">
+			<div id="info"></div>
+			<div id="btns">
+				<h5>Move</h5>
+				<button class="btn btn-small" value='movex' onclick="Move('x', 1)">-x</button>
+				<button class="btn btn-small" value='movex' onclick="Move('x', -1)">+x</button>
+				<button class="btn btn-small" value='movey' onclick="Move('y', 0.5)">+y</button>
+				<button class="btn btn-small" value='movey' onclick="Move('y', -0.5)">-y</button>
+				<button class="btn btn-small" value='movez' onclick="Move('z', -1)">-z</button>
+				<button class="btn btn-small" value='movez' onclick="Move('z', 1)">+z</button>
+				<button class="btn btn-small" value='reset' onclick="Reset()">Reset Position</button>
+			</div>
+			
+		</div>
+		
+		
+		
+	</body>
+</html>

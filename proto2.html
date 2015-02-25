@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Panorama store demo</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="scripts/default.css" rel="stylesheet" type="text/css"/>
+		<link href="scripts/custom.css" rel="stylesheet" type="text/css" />
+		
+		<!-- jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+		<!-- bootstrap -->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
+	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js" type="text/javascript"></script>
+		
+		<script src="scripts/panorama.js"></script>
+		<script src="scripts/dragObj.js"></script>
+		
+	</head>
+	<body>
+
+		<div id="container"></div>
+		<div id="info_window"  class="alert alert-info">
+			<div id="info"></div>
+			<div id="btns">
+				<p class="well" id = "feedback">Wheres should the mannequin go?</p>
+				
+				<h5>Move</h5>
+				
+				<button class="btn btn-small" onclick="MoveTo(-1.5,-1,5, 101); CheckAnswer(this.value)" value='Correct, the mannequin belongs here.' >Location A</button>
+				<button class="btn btn-small" onclick="MoveTo(6,-1,1, 368); CheckAnswer(this.value)" value='Wrong, the mannequin blocks traffic flow here' >Location B</button>
+				<button class="btn btn-small" onclick="MoveTo(4,-1,-9.5, 290); CheckAnswer(this.value)" value='This is ok too, I guess.' >Location C</button>
+				<button class="btn btn-small" onclick="Opacity(0.1); CheckAnswer(this.value)" value='Wrong. Why hide it?' >Hide</button>
+				<button class="btn btn-small" onclick="Reset(); CheckAnswer(this.value)" value='Wrong, the mannequin blocks the shelf here' >Original Position</button>
+				
+				
+			</div>
+			
+		</div>
+		
+		
+	</body>
+</html>
