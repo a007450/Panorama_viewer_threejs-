@@ -1,44 +1,27 @@
 /*
  *  Vienna Ly
  *  Aug 1, 2013
- *  clickable drag objects -- based on webgl_interactive_draggablecubes (three.js)
- *
- *  Set marker parameters: size, material...tbd
+ *  
+ *  TODO Ability to set marker parameters: size, material, lighting...etc
  */
 
-	
-var p0 = {
-	id: "0", name: "point 1",
-	description: "A mannequin is an often articulated doll used by artists, tailors, dressmakers, windowdressers and others especially to display or fit clothing. ",
-	pos: {x: 10, y:-1, z:0},
-	size: {x: 1, y:.3, z:0.1}, 
-	type: "texture",
-	url: "images/mannequin.png"
-},
-p1 = {
-	id: "1", name: "point 2",
-	description: "Description about another item.",
-	pos: {x: -15, y:-2, z:0},
-	size: {x: 1, y:1, z:1}, 
-	type: "sphere"
-}
 
-// for drag object
+
+// for click object
 var offset = new THREE.Vector3(),
 	OBJECTS = [], PLANE, MOUSE2D;
 
 // custom event
 //var event = new THREE.EventDispatcher();
-//event.addEventListener('dragObj', onDragObj, false );
+//event.addEventListener('clickObj', onclickObj, false );
 
-function CreateObjects() {
+function CreateObjects(p) {
 	// plane
-	//Lighting();
-	//CreateGrid(true);
+	//Lighting();  // TODO to add lighting for obj
+	//CreateGrid(true); // to view gride plane for ref
 
-	DragObj(p0);
-	//DragObj(p1);
-	
+	clickObj(p);
+		
 }
 function Lighting() {
 	var ambientLight = new THREE.AmbientLight(0xbbbbbb),
@@ -60,7 +43,7 @@ function CreateGrid(visible) {
 	SCENE.add( PLANE );
 }
 
-function DragObj(p) {
+function clickObj(p) {
 	
 	var geometry = new THREE.CubeGeometry(p.size.x, p.size.y, p.size.z),
 		
@@ -95,7 +78,7 @@ function DragObj(p) {
 	obj.lookAt(new THREE.Vector3( 0, 0, 0 ));								
 	obj.callback = function() { 
 		isUserInteracting = false 
-	}
+	};
 	
 	
 	OBJECTS.push(obj);

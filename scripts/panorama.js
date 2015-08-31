@@ -7,7 +7,7 @@
 /*
 * SET PANO PARMETERS
 */
-var mat = 'images/3998_1999.jpg', //http://sky.easypano.com/EPSUpload/Pano/2013/05-03/11/635031780108210803/upload.jpg
+var mat = 'panos/3998_1999.jpg', //http://sky.easypano.com/EPSUpload/Pano/2013/05-03/11/635031780108210803/upload.jpg
 	panoSize = {w: 900, h: 450},
 	ratio_wh =panoSize.w / panoSize.h,
 	$info_window;
@@ -20,6 +20,24 @@ var fov = 60,
 	isUserInteracting = false,
 	lon = 0, lat = 0, 
 	phi = 0, theta = 0;
+
+
+// click objects - e.g define params	
+var p0 = {
+	id: "0", name: "point 1",
+	description: "A mannequin is an often articulated doll used by artists, tailors, dressmakers, windowdressers and others especially to display or fit clothing. ",
+	pos: {x: 10, y:-1, z:0},
+	size: {x: 1, y:.3, z:0.1}, 
+	type: "texture",
+	url: "panos/mannequin.png"
+},
+p1 = {
+	id: "1", name: "point 2",
+	description: "Description about another item.",
+	pos: {x: -15, y:-2, z:0},
+	size: {x: 1, y:1, z:1}, 
+	type: "sphere"
+};
 
 $(document).ready(function() {
 	init();
@@ -55,7 +73,7 @@ function init() {
 	mesh.scale.z = -1;
 	SCENE.add( mesh );
 	
-	CreateObjects();
+	CreateObjects(p0);
 
 	PROJECTOR = new THREE.Projector();	
 	
